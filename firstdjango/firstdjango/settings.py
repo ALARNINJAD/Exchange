@@ -81,12 +81,12 @@ WSGI_APPLICATION = 'firstdjango.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',  
-        'USER': 'root',  
-        'PASSWORD': 'krWXibAGjDyGxRvcAIuOTfgeOWsBIEuK',  
-        'HOST': 'autorack.proxy.rlwy.net',  
-        'PORT': '44058',  
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3'
+        # 'USER': 'root',
+        # 'PASSWORD': 'krWXibAGjDyGxRvcAIuOTfgeOWsBIEuK',
+        # 'HOST': 'autorack.proxy.rlwy.net',
+        # 'PORT': '44058',
     }
 }
 
