@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background: #f5f7fa;
+			font-family: 'Segoe UI', Arial, sans-serif;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+		.login-container {
+			background: #fff;
+			padding: 2rem 2.5rem;
+			border-radius: 12px;
+			box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+			width: 350px;
+		}
+		.login-container h2 {
+			text-align: center;
+			margin-bottom: 1.5rem;
+			color: #333;
+		}
+		.form-group {
+			margin-bottom: 1.2rem;
+		}
+		.form-group label {
+			display: block;
+			margin-bottom: 0.4rem;
+			color: #555;
+			font-size: 1rem;
+		}
+		.form-group input {
+			width: 100%;
+			padding: 0.7rem;
+			border: 1px solid #ccc;
+			border-radius: 6px;
+			font-size: 1rem;
+			transition: border-color 0.2s;
+		}
+		.form-group input:focus {
+			border-color: #0078d7;
+			outline: none;
+		}
+		.login-btn {
+			width: 100%;
+			padding: 0.8rem;
+			background: #0078d7;
+			color: #fff;
+			border: none;
+			border-radius: 6px;
+			font-size: 1.1rem;
+			cursor: pointer;
+			transition: background 0.2s;
+		}
+		.login-btn:hover {
+			background: #005fa3;
+		}
+		.register-link {
+			display: block;
+			text-align: center;
+			margin-top: 1rem;
+			color: #0078d7;
+			text-decoration: none;
+			font-size: 0.95rem;
+		}
+		.register-link:hover {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<div class="login-container">
+		<h2>Login</h2>
+		<form>
+				<div class="form-group" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+					<label for="username" style="align-self: flex-start;">Username</label>
+					<input type="text" id="username" name="username" required autocomplete="username" style="width: 100%;">
+				</div>
+				<div class="form-group" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+					<label for="password" style="align-self: flex-start;">Password</label>
+					<input type="password" id="password" name="password" required autocomplete="current-password" style="width: 100%;">
+				</div>
+				<button type="submit" class="login-btn">Login</button>
+		</form>
+		<a href="/register" class="register-link">Don't have an account? Register</a>
+	</div>
+</body>
+</html>
