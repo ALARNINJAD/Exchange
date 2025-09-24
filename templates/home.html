@@ -1,53 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Home Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 2rem;
-            text-align: center;
-        }
-        main {
-            max-width: 800px;
-            margin: 2rem auto;
-            background: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        h1 {
-            margin-top: 0;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: #eee;
-            color: #333;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exchange Platform</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      background: #121212;      /* Dark background */
+      color: #e0e0e0;           /* Light text */
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      background: #1f1f1f;      /* Dark header */
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      margin-bottom: 40px;
+    }
+
+    .wallet-section, .balance-section {
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .wallet-form {
+      display: flex;
+      gap: 10px;
+    }
+
+    .wallet-form input {
+      padding: 10px;
+      background: #2b2b2b;
+      border: 1px solid #444;
+      border-radius: 5px;
+      color: #e0e0e0;
+      width: 150px;
+    }
+
+    .wallet-form button {
+      padding: 10px 20px;
+      background: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .wallet-form button:hover {
+      background: #005fa3;
+    }
+
+    .balance-display {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .currency-card {
+      background: #2b2b2b;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      color: #f5f5f5;
+    }
+
+    .exchange-section {
+      position: fixed;
+      top: 50%;               /* Center vertically */
+      left: 50%;              /* Center horizontally */
+      transform: translate(-50%, -50%);
+      background: #1f1f1f;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.6);
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      color: #f5f5f5;
+    }
+
+    .exchange-form {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    select, .exchange-form input {
+      padding: 12px;
+      background: #2b2b2b;
+      border: 1px solid #444;
+      border-radius: 5px;
+      color: #e0e0e0;
+      width: 100%;
+    }
+
+    .exchange-btn {
+      grid-column: 1 / 4;
+      padding: 12px;
+      background: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .exchange-btn:hover {
+      background: #005fa3;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Home Page</h1>
-    </header>
-    <main>
-        <p>This is a simple home page template. You can modify and expand it as needed.</p>
-    </main>
-    <footer>
-        &copy; 2024 Your Website
-    </footer>
+  <div class="header">
+    <!-- Wallet Section -->
+    <div class="wallet-section">
+      <form class="wallet-form">
+        <input type="number" placeholder="Amount in Toman">
+        <button type="submit">Add to Wallet</button>
+      </form>
+    </div>
+
+    <!-- Balance Section -->
+    <div class="balance-section">
+      <div class="balance-display">
+        <div class="currency-card">
+          <h3>Dollar</h3>
+          <p>$0.00</p>
+        </div>
+        <div class="currency-card">
+          <h3>Pounds</h3>
+          <p>£0.00</p>
+        </div>
+        <div class="currency-card">
+          <h3>Toman</h3>
+          <p>₺0.00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exchange Section -->
+  <div class="exchange-section">
+    <form class="exchange-form">
+      <div>
+        <select name="from-currency">
+          <option value="dollar">Dollar</option>
+          <option value="pounds">Pounds</option>
+          <option value="toman">Toman</option>
+        </select>
+        <input type="number" placeholder="Amount">
+      </div>
+      <span>→</span>
+      <div>
+        <select name="to-currency">
+          <option value="dollar">Dollar</option>
+          <option value="pounds">Pounds</option>
+          <option value="toman">Toman</option>
+        </select>
+        <input type="number" placeholder="Result" readonly>
+      </div>
+      <button type="submit" class="exchange-btn">Exchange</button>
+    </form>
+  </div>
 </body>
 </html>
