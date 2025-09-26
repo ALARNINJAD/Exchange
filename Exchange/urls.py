@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from transaction.views import home
-from authentication.views import log_in,register
+from authentication.views import log_in,register,redirect_to_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', redirect_to_login, name="root"),
     path('home/', home, name="home"),
     path('login/', log_in, name="login"),
     path('register/', register, name="register"),

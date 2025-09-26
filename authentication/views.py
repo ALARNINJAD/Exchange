@@ -4,6 +4,9 @@ from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
+def redirect_to_login(request):
+    return redirect('login')
+
 def register(request):
 
     if request.method == 'POST':
@@ -17,7 +20,7 @@ def register(request):
 
         user = User.objects.create_user(username=username ,password=password)
         # create username
-        
+
         return redirect('/login/')
         # now its time to log in
 
