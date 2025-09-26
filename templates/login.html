@@ -76,7 +76,8 @@
 <body>
 	<div class="login-container">
 		<h2>Login</h2>
-		<form>
+		<form method="POST" action="{% url 'login' %}">
+			{% csrf_token %}
 				<div class="form-group" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
 					<label for="username" style="align-self: flex-start;">Username</label>
 					<input type="text" id="username" name="username" required autocomplete="username" style="width: 100%;">

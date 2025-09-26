@@ -8,31 +8,27 @@ def register(request):
 
     if request.method == 'POST':
         username = request.POST.get('username')
-        password = request.POST.get('pasword')
+        password = request.POST.get('password')
         # getting username and password
     
         if User.objects.filter(username=username).exists():
             return redirect('/login/')
         # if its already registered
 
-        user = User.objects.create_user(username=username)
+        user = User.objects.create_user(username=username ,password=password)
         # create username
-
-        user.set_password(password)
-        user.save()
-        # set password and save
-
+        
         return redirect('/login/')
         # now its time to log in
 
     return render(request,'register.html')
 
 
-def login(request):
+def log_in(request):
 
     if request.method == 'POST':
         username = request.POST.get('username')
-        password = request.POST.get('pasword')
+        password = request.POST.get('password')
         # getting username and password
 
         if not User.objects.filter(username=username).exists():
