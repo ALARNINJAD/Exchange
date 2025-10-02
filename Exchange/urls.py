@@ -21,8 +21,12 @@ from authentication.views import log_in,register,redirect_to_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', redirect_to_login, name="root"),
+    
+    # transaction
     path('home/', home, name="home"),
+    
+    # authentication
+    path('', redirect_to_login, name="root"),
     path('login/', log_in, name="login"),
     path('register/', register, name="register"),
 ]
