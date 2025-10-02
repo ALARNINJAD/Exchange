@@ -10,9 +10,8 @@ class wallet(models.Model):
 
     # currencies
     toman = models.DecimalField(max_digits=32 , decimal_places=0 ,default=0)
-    dollor = models.DecimalField(max_digits=16 , decimal_places=2 ,default=0)
+    dollar = models.DecimalField(max_digits=16 , decimal_places=2 ,default=0)
     pound = models.DecimalField(max_digits=16 , decimal_places=2 ,default=0)
-    euro = models.DecimalField(max_digits=16 , decimal_places=2 ,default=0)
 
 
 class price(models.Model):
@@ -21,4 +20,3 @@ class price(models.Model):
     toman = models.DecimalField(max_digits=8, decimal_places=2, default=1)
     dollor = models.DecimalField(max_digits=8, decimal_places=2, default=115)
     pounds = models.DecimalField(max_digits=8, decimal_places=2, default=155)
-    euro = models.DecimalField(max_digits=8, decimal_places=2, default=135)

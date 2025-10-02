@@ -122,32 +122,52 @@
     .exchange-btn:hover {
       background: #005fa3;
     }
+
+    .username-display {
+      background: #2b2b2b;
+      border: 2px solid rgb(153, 153, 153);
+      border-radius: 8px;
+      padding: 15px 20px;
+      color: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 200px;
+    }
+
   </style>
 </head>
 <body>
   <div class="header">
     <!-- Wallet Section -->
     <div class="wallet-section">
-      <form class="wallet-form">
+      <form class="wallet-form" method="POST">
+        {% csrf_token %}
         <input type="number" placeholder="Amount in Toman" name="add_toman">
         <button type="submit">Add to Wallet</button>
       </form>
     </div>
+
+    <!-- Username Display -->
+    <div class="username-display">
+      <p>Welcome, <strong>{{ user.username }}</strong></p>
+    </div>
+
 
     <!-- Balance Section -->
     <div class="balance-section">
       <div class="balance-display">
         <div class="currency-card">
           <h3>Dollar</h3>
-          <p>$0.00</p>
+          <p>${{ user_wallet.dollar }}</p>
         </div>
         <div class="currency-card">
           <h3>Pound</h3>
-          <p>£0.00</p>
+          <p>£{{ user_wallet.pound }}</p>
         </div>
         <div class="currency-card">
           <h3>Toman</h3>
-          <p>₺0.00</p>
+          <p>₺{{ user_wallet.toman }}</p>
         </div>
       </div>
     </div>
@@ -155,7 +175,8 @@
 
   <!-- Exchange Section -->
   <div class="exchange-section">
-    <form class="exchange-form">
+    <form class="exchange-form" method="POST">
+      {% csrf_token %}
       <div>
         <select name="from-currency">
           <option value="dollar">Dollar</option>

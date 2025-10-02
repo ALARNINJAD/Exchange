@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from transaction.models import wallet
 
 # Create your views here.
 
@@ -19,7 +20,7 @@ def register(request):
         # if its already registered
 
         user = User.objects.create_user(username=username ,password=password)
-        # create username
+        # create user
 
         return redirect('/login/')
         # now its time to log in
