@@ -159,15 +159,15 @@
       <div class="balance-display">
         <div class="currency-card">
           <h3>Dollar</h3>
-          <p>${{ user_wallet.dollar }}</p>
+          <p>${{ user_wallet.dollar|floatformat:2 }}</p>
         </div>
         <div class="currency-card">
           <h3>Pound</h3>
-          <p>£{{ user_wallet.pound }}</p>
+          <p>£{{ user_wallet.pound|floatformat:2 }}</p>
         </div>
         <div class="currency-card">
           <h3>Toman</h3>
-          <p>₺{{ user_wallet.toman }}</p>
+          <p>₺{{ user_wallet.toman|floatformat:2 }}</p>
         </div>
       </div>
     </div>
@@ -183,7 +183,7 @@
           <option value="pound">Pound</option>
           <option value="toman">Toman</option>
         </select>
-        <input type="number" placeholder="Amount">
+        <input type="number" placeholder="Amount" name="amount">
       </div>
       <span>→</span>
       <div>
@@ -192,7 +192,7 @@
           <option value="pound">Pound</option>
           <option value="toman">Toman</option>
         </select>
-        <input type="number" placeholder="Result" readonly>
+        <input type="number" placeholder="Result" name="result" readonly>
       </div>
       <button type="submit" class="exchange-btn">Exchange</button>
     </form>
