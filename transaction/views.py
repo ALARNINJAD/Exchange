@@ -48,9 +48,10 @@ def home(request):
             }
 
             # calculate
-            result = amount * rates[from_currency][to_currency]
-            setattr(user_wallet, from_currency, getattr(user_wallet, from_currency) - amount)
-            setattr(user_wallet, to_currency, getattr(user_wallet, to_currency) + result)
-            user_wallet.save()
+            if getattr(user_wallet,from_currency) >= amount >=0 :
+                result = amount * rates[from_currency][to_currency]
+                setattr(user_wallet, from_currency, getattr(user_wallet, from_currency) - amount)
+                setattr(user_wallet, to_currency, getattr(user_wallet, to_currency) + result)
+                user_wallet.save()
 
     return render(request,'home.html',{"user_wallet":user_wallet})
